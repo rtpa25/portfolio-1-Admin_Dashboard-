@@ -65,17 +65,20 @@ const NewProduct = () => {
     const sizeArray = sizeString.trim().split(',');
     const colorString = colorRef.current.value;
     const colorArray = colorString.trim().split(',');
-    const res = await axiosInstance.post('/addProduct', {
-      name: name,
-      desc: desc,
-      price: price,
-      categories: categoryArray,
-      size: sizeArray,
-      color: colorArray,
-      img: preview,
-    });
-    const status = res.status;
-    alert(status);
+    try {
+      const res = await axiosInstance.post('/addProduct', {
+        name: name,
+        desc: desc,
+        price: price,
+        categories: categoryArray,
+        size: sizeArray,
+        color: colorArray,
+        img: preview,
+      });
+      alert(res.status);
+    } catch (error: any) {
+      alert(error.message);
+    }
   };
 
   const previewFile = (file: File) => {
