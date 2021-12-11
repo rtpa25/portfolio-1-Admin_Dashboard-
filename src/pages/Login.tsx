@@ -79,8 +79,8 @@ const Login = () => {
     if (error === false && isFetching === false) {
       Cookies.remove('token');
       Cookies.set('token', res?.data.token);
-      window.location.reload();
       navigate('/home');
+      window.location.reload();
     }
   };
 

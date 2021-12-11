@@ -21,6 +21,7 @@ const Topbar = () => {
   const signoutHandler = () => {
     Cookies.remove('token');
     navigate('/login');
+    window.location.reload();
   };
 
   const token = Cookies.get('token');
